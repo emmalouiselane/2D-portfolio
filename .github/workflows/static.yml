@@ -49,7 +49,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder and assets
-          path: './dist/**'
+          path: './dist'
       - name: List final files
         run: |
           echo "Final files in dist directory:"
