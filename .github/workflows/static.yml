@@ -45,6 +45,12 @@ jobs:
           ls -la ./dist
           echo "File contents of dist directory:"
           find ./dist -type f -exec cat {} \;
+      - name: Update base URL
+        run: |
+          echo "Updating base URL in index.html to point to production domain"
+          sed -i 's|<base href="/">|<base href="https://sparklane.dev/">|' dist/index.html
+          echo "Updated index.html:"
+          cat dist/index.html
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

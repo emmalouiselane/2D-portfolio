@@ -1,9 +1,17 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    base: "/",
+    base: '/',
     build: {
-        minify: false,  // Disable minification to avoid differences
+        minify: false,
         assetsDir: "assets",
+        rollupOptions: {
+            input: {
+                main: './index.html'
+            },
+            output: {
+                assetFileNames: 'assets/[name].[ext]'
+            }
+        }
     }
 })
