@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
-    base: '/',
+    base: '/2D-portfolio/',
     build: {
         minify: false,
         assetsDir: "assets",

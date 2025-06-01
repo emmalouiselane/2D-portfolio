@@ -38,32 +38,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
       - name: Build
-        run: |
-          echo "Building project..."
-          npm run build
-          echo "Build complete. Files in dist directory:"
-          ls -la ./dist
-          echo "File contents of dist directory:"
-          find ./dist -type f -exec cat {} \;
-      - name: Update base URL
-        run: |
-          echo "Updating base URL in index.html to point to production domain"
-          sed -i 's|<base href="/">|<base href="https://sparklane.dev/">|' dist/index.html
-          echo "Updated index.html:"
-          cat dist/index.html
+        run: npm run build
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload dist folder and assets
+          # Upload dist folder
           path: './dist'
-      - name: List final files
-        run: |
-          echo "Final files in dist directory:"
-          ls -la ./dist
-          echo "Files in assets directory:"
-          ls -la ./dist/assets/ || echo "Assets directory not found"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
