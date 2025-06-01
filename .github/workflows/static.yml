@@ -43,6 +43,8 @@ jobs:
           npm run build
           echo "Build complete. Files in dist directory:"
           ls -la ./dist
+          echo "File contents of dist directory:"
+          find ./dist -type f -exec cat {} \;
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact
